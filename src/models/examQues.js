@@ -12,11 +12,11 @@ const objectiveQuesSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    options: [Number],
-    answerNum: [Number],
-    answer: String,
+    options: [String],
+    answer: [String],
     score: Number
 })
+
 
 const subjectiveQuesSchema = new mongoose.Schema({
     quesType: {

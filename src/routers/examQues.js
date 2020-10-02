@@ -16,7 +16,7 @@ router.post('/tests/new', authFaculty, async (req, res) => {
         })
         await test.save()
         res.send({
-            status: 'ok'
+            test
         });
     } catch (e) {
         res.status(400).send(e)
@@ -25,43 +25,44 @@ router.post('/tests/new', authFaculty, async (req, res) => {
 
 router.post('/tests/addObj', authFaculty, async (req, res) => {
     try {
-        const test = await Test.findById(req.body._id);
+        const test = await Test.findById(req.body.testId);
         let ques;
-        if (req.body.question.quesType <= 3) {
+        if (req.body.quesType <= 3) {
             ques = {
-                quesType: req.body.question.quesType,
-                question: req.body.question.text,
-                options: req.body.question.options,
-                answerNum: req.body.question.answer,
-                score: req.body.question.score  
+                quesType: req.body.quesType,
+                question: req.body.text,
+                options: req.body.options,
+                answer: req.body.answer,
+                score: req.body.score  
             }
         }
-        else if (req.body.question.quesType == 4) {
+        else if (req.body.quesType == 4) {
             ques = {
-                quesType: req.body.question.quesType,
-                question: req.body.question.text,
-                answerNum: req.body.question.answer,
-                score: req.body.question.score  
+                quesType: req.body.quesType,
+                question: req.body.text,
+                answer: req.body.answer,
+                score: req.body.score  
             }
         }
-        else if (req.body.question.quesType == 5) {
+        else if (req.body.quesType == 5) {
             ques = {
-                quesType: req.body.question.quesType,
-                question: req.body.question.text,
-                answer: req.body.question.answer.toLowerCase(),
-                score: req.body.question.score  
+                quesType: req.body.quesType,
+                question: req.body.text,
+                answer: req.body.answer.toLowerCase(),
+                score: req.body.score  
             }
         }
-        else if (req.body.question.quesType == 6) {
+        else if (req.body.quesType == 6) {
             ques = {
-                quesType: req.body.question.quesType,
-                question: req.body.question.text,
-                answerNum: req.body.question.answer, //1 true 2 false
-                score: req.body.question.score  
+                quesType: req.body.quesType,
+                question: req.body.text,
+                answer: req.body.answer,
+                score: req.body.score  
             }
         }
         test.objectiveQues.push(ques);
-        res.send({status: 'ok'});
+        await test.save();
+        res.send({status: 'question added'});
     } catch (e) {
         res.status(400).send(e)
     }
@@ -69,13 +70,14 @@ router.post('/tests/addObj', authFaculty, async (req, res) => {
 
 router.post('/tests/addSubj', authFaculty, async (req, res) => {
     try {
-        const test = await Test.findById(req.body._id);
+        const test = await Test.findById(req.body.testId);
         const ques = {
-            quesType: req.body.question.quesType,
-            question: req.body.question.text,
-            score: req.body.question.score  
+            quesType: req.body.quesType,
+            question: req.body.text,
+            score: req.body.score  
         }
         test.subjectiveQues.push(ques);
+        await test.save();
         res.send({status: 'ok'});
     } catch (e) {
         res.status(400).send(e)

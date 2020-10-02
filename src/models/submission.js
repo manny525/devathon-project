@@ -2,17 +2,24 @@ const mongoose = require('mongoose');
 
 const objectiveQuesSchema = new mongoose.Schema({
     questionId: mongoose.Schema.Types.ObjectId,
-    answerNum: [Number],
-    answer: String,
-    status: Number,
+    quesType: Number,
+    answer: [String],
+    status: {
+        type: Number,
+        default: 0,
+    },
     score: Number
 });
 
 const subjectiveQuesSchema = new mongoose.Schema({
     questionId: mongoose.Schema.Types.ObjectId,
+    quesType: Number,
     answer: String,
     answerDoc: Buffer,
-    status: Number,
+    status: {
+        type: Number,
+        default: 0,
+    },
     score: Number
 });
 
@@ -31,9 +38,18 @@ const submissionSchema = new mongoose.Schema({
     },
     objectiveQues: [objectiveQuesSchema],
     subjectiveQues: [subjectiveQuesSchema],
-    objectiveScore: Number,
-    subjectiveScore: Number,
-    score: Number
+    objectiveScore: {
+        type: Number,
+        default: 0
+    },
+    subjectiveScore: {
+        type: Number,
+        default: 0
+    },
+    score: {
+        type: Number,
+        default: 0
+    }
 });
 
 const Submission = mongoose.model('Submission', submissionSchema)

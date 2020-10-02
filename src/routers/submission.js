@@ -11,55 +11,67 @@ router.post('/submission/new', authStudent, async (req, res) => {
         const submission = new Submission({
             testId: req.body.testId,
             courseId: req.body.courseId,
-            studentId: req.body.studentId,
+            studentId: req.user._id,
             objectiveQues: req.body.objectiveQues,
             subjectiveQues: req.body.subjectiveQues,
-            objectiveScore: 0
+            objectiveScore: 0,
+            subjectiveScore: -1,
+            score: 0
         });
+        await submission.save();
         let quesMap = new Map();
         
-        test.objectiveQues.foreach(ques => {
-            quesMap.set(ques._id, {
+        test.objectiveQues.forEach(ques => {
+            quesMap.set(ques._id.toString(), {
                 ques
             })
         });
+
         
-        submission.objectiveQues.foreach((ques) => {
+        submission.objectiveQues.forEach((ques) => {
             if (ques.quesType == 1 || ques.quesType == 4 || ques.quesType == 6) {
-                question = quesMap.get(ques._id);
-                if (question.answerNum[0] == ques.answer[0]) {
+                const question = quesMap.get(ques._id.toString()).ques;
+                if (question.answer[0] == ques.answer[0]) {
+                    ques.status = 1;
                     submission.objectiveScore = submission.objectiveScore + question.score;
                 }
+                console.log(ques);
             }
             else if (ques.quesType == 2) {
-                question = quesMap.get(ques._id);
-                question.answerNum.foreach((answer, index) => {
+                const question = quesMap.get(ques._id.toString()).ques;
+                question.answer.forEach((answer, index) => {
                     if (answer == ques.answer[index]) {
+                        ques.status = 1;
                         submission.objectiveScore = submission.objectiveScore + (question.score/ques.answer.length);
                     }
                 })
+                console.log(ques);
             }
             else if (ques.quesType == 3) {
-                question = quesMap.get(ques._id);
+                const question = quesMap.get(ques._id.toString()).ques;
                 let allCorrrect = true
-                question.answerNum.foreach((answer, index) => {
+                question.answer.forEach((answer, index) => {
                     if (answer != ques.answer[index]) {
                         allCorrrect = false;
-                        break;
                     }
                 })
                 if (allCorrrect) {
+                    ques.status = 1;
                     submission.objectiveScore = submission.objectiveScore + question.score;
                 }
             }
             else if (ques.quesType == 5) {
-                question = quesMap.get(ques._id);
+                const question = quesMap.get(ques._id.toString()).ques;
                 if (question.answer == ques.answer) {
+                    ques.status = 2;
                     submission.objectiveScore = submission.objectiveScore + question.score;
                 }
             }
             //add subjective question evaluation
         })
+        submission.score = submission.objectiveScore;
+        await submission.save();
+        res.send({ submission });
     } catch (e) {
         res.status(400).send(e)
     }
@@ -67,27 +79,31 @@ router.post('/submission/new', authStudent, async (req, res) => {
 
 router.post('/submission/get/faculty', authFaculty, async (req, res) => {
     try {
-        const submissions = await Submission.find({ studentId: req.body.studentId, courseId: req.body.courseId });
-        let results;
-        submissions.foreach(async (sub) => {
-            const test = await Test.findById(sub.testId);
-            let quesMap = new Map();
-            test.objectiveQues.foreach(ques => {
-                quesMap.set(ques._id, {
-                    ques
-                })
-            });
+        const submissions = await Submission.find( {studentId: req.body.studentId, courseId: req.body.courseId} );
+        let results = [];
+        const promises = submissions.map(async (sub) => {
             let result = {
                 objectiveQues: [],
                 score: sub.score
             };
-            sub.objectiveQues.foreach(ques => {
-                result.objectiveQues.push({
-                    ques: quesMap.get(ques._id),
+            results.push(result)
+            const test = await Test.findById(sub.testId);
+            return test;
+        })
+        console.log(results)
+        const tests = await Promise.all(promises);
+        tests.forEach((test, index) => {
+            let quesMap = new Map();
+            test.objectiveQues.forEach(ques => {
+                quesMap.set(ques._id.toString(), ques)
+            });
+            console.log(results[index]);
+            test.objectiveQues.forEach(ques => {
+                results[index].objectiveQues.push({
+                    ques: quesMap.get(ques._id.toString()),
                     status: ques.status
                 });
             })
-            results.push(result);
         })
         res.send({ results });
     } catch (e) {
@@ -97,27 +113,31 @@ router.post('/submission/get/faculty', authFaculty, async (req, res) => {
 
 router.post('/submission/get/student', authStudent, async (req, res) => {
     try {
-        const submissions = await Submission.find({studentId: req.body.studentId, courseId: req.body.courseId});
-        let results;
-        submissions.foreach(async (sub) => {
-            const test = await Test.findById(sub.testId);
-            let quesMap = new Map();
-            test.objectiveQues.foreach(ques => {
-                quesMap.set(ques._id, {
-                    ques
-                })
-            });
+        const submissions = await Submission.find( {studentId: req.user._id, courseId: req.body.courseId} );
+        let results = [];
+        const promises = submissions.map(async (sub) => {
             let result = {
                 objectiveQues: [],
                 score: sub.score
             };
-            sub.objectiveQues.foreach(ques => {
-                result.objectiveQues.push({
-                    ques: quesMap.get(ques._id),
+            results.push(result)
+            const test = await Test.findById(sub.testId);
+            return test;
+        })
+        console.log(results)
+        const tests = await Promise.all(promises);
+        tests.forEach((test, index) => {
+            let quesMap = new Map();
+            test.objectiveQues.forEach(ques => {
+                quesMap.set(ques._id.toString(), ques)
+            });
+            console.log(results[index]);
+            test.objectiveQues.forEach(ques => {
+                results[index].objectiveQues.push({
+                    ques: quesMap.get(ques._id.toString()),
                     status: ques.status
                 });
             })
-            results.push(result);
         })
         res.send({ results });
     } catch (e) {
