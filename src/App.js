@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+const express = require('express')
+require('./db/mongoose')
+const userRouter = require('./routers/user')
+const facultyAdvisorRouter = require('./routers/facultyAdvisor')
+const facultyRouter = require('./routers/faculty')
+const testRouter = require('./routers/examQues')
+const courseRouter = require('./routers/course')
+// const submissionRouter = require('./routers/')
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+const app = express()
+
+app.use(express.json());
+app.use(userRouter);
+app.use(facultyAdvisorRouter);
+app.use(facultyRouter);
+app.use(courseRouter);
+app.use(testRouter);
+// app.use(submissionRouter);
+
+module.exports = app
