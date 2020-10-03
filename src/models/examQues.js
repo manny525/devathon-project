@@ -43,7 +43,6 @@ const examSchema = new mongoose.Schema({
     },
     objectiveQues: [objectiveQuesSchema],
     subjectiveQues: [subjectiveQuesSchema],
-    total: Number,
     startDateTime:  {
         type: Date,
         required: true

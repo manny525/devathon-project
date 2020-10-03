@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Online Testing</title>
+    <link rel="stylesheet" href="homecss/bootstrap.min.css">
+    <link rel="stylesheet" href="homecss/animate.css">
+    <link rel="stylesheet" href="homecss/themify-icons.css">
+    <link rel="stylesheet" href="homecss/style.css">
+    <style type="text/css">
+        .pattern>li{
+            margin-bottom: 1%;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main_menu home_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <center>
+                                <h1><strong>Add Question</strong></h1> 
+                            </center>   
+                        </div>
+                        <a class="navbar-brand" href="index.html"> <img src="logo.png" alt="logo" width="150"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner_part mt-5">
+        <div class="container">
+            <div class="banner_text">
+                <div class="banner_text_iner">
+                    <div class="col-md-6">
+                        <form class="form justify-content-space-around" action="Add_Ques.html">
+                            <h3>Select and Add Question</h3>
+                            <div class="form-group">
+                                <label for="QTYPE">Select Type Of Question:</label>
+                                <select class="form-control" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00" required>
+                                    <option id="QTYPE" name="obj">Objective</option>
+                                    <option id="QTYPE" name="subj">Subjective</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="QTYPE">Question Pack:</label>
+                                <select class="form-control" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00" required>
+                                    <option id="QTYPE" name="1" default>1. MCQ-I</option>
+                                    <option id="QTYPE" name="2">2. MCQ-II</option>
+                                    <option id="QTYPE" name="3">3. MCQ-III</option>
+                                    <option id="QTYPE" name="4">4. INTEGER TYPE</option>
+                                    <option id="QTYPE" name="5">5. FILL IN THE BLANKS</option>
+                                    <option id="QTYPE" name="6">6. TRUE / FALSE</option>
+                                    <option id="QTYPE" name="7">7. SUBJECTTIVE</option>
+                                </select>
+                            </div>
+                            <input type="submit" name="" value="NEXT" class="btn_1" style="transform: scale(0.8);">
+                        </form>                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="homejs/jquery-1.12.1.min.js"></script>
+    <script src="homejs/popper.min.js"></script>
+    <script src="homejs/jquery.magnific-popup.js"></script>
+    <script src="homejs/custom.js"></script>
+</body>
+
+</html>

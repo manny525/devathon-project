@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const objectiveQuesSchema = new mongoose.Schema({
-    questionId: mongoose.Schema.Types.ObjectId,
     quesType: Number,
     answer: [String],
     status: {
@@ -12,7 +11,6 @@ const objectiveQuesSchema = new mongoose.Schema({
 });
 
 const subjectiveQuesSchema = new mongoose.Schema({
-    questionId: mongoose.Schema.Types.ObjectId,
     quesType: Number,
     answer: String,
     answerDoc: Buffer,

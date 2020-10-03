@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Online Testing</title>
+    <link rel="stylesheet" href="homecss/bootstrap.min.css">
+    <link rel="stylesheet" href="homecss/animate.css">
+    <link rel="stylesheet" href="homecss/themify-icons.css">
+    <link rel="stylesheet" href="homecss/style.css">
+    <style type="text/css">
+        .pattern>li{
+            margin-bottom: 1%;
+            font-size: 16px;
+        }
+
+        .MCQ{
+            margin-right: 3%;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main_menu home_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <center>
+                                <h1><strong>Add Question</strong></h1> 
+                            </center>   
+                        </div>
+                        <a class="navbar-brand" href="index.html"> <img src="logo.png" alt="logo" width="150"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner_part mt-5">
+        <div class="container">
+            <div class="banner_text">
+                <div class="banner_text_iner">
+                    <div class="col-md-6">
+                        <h3>Pattern of Questions</h3>
+                        <p>There are 7 different categories of questions which can be asked</p>
+                        <ol class="pattern">
+                            <li><strong>MCQ - I :</strong>In this type of question <b> ONLY ONE OPTION IS CORRECT</b>
+                            </li>
+                            <li><strong>MCQ - II :</strong>In this type of question <b>MORE THAN ONE OPTION</b> can be correct with <b>NO PARTIAL MARKING</b>
+                            </li>
+                            <li><strong>MCQ - III :</strong>In this type of question <b>MORE THAN ONE OPTION</b> can be correct with <b>PARTIAL MARKING</b>
+                            </li>
+                            <li><strong>INTEGER TYPE :</strong>In this type of question, answer will be in the form of <b>INTEGRAL VALUES ROUNDED UPTO NEAREST INTEGER</b>
+                            </li>
+                            <li><strong>FITB :</strong>In this type of question, answers have to be <b>FILLED IN THE BLANKS</b> with proper spelling.
+                            </li>
+                            <li><strong>True/False :</strong>In this type of question, ask if the given statement is <b>TRUE or FALSE</b>
+                            </li>
+                            <li><strong>Subjective :</strong>In this type of question ,answer is expected to be submitted in the form of <b>TEXT</b> or <b>PDF</b>. Maximum word limit is 400 words.
+                            </li>
+                        </ol>                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="col align-self-center">
+                <div>
+                    <hr>
+                    <h4><strong>Type : MCQ - I</strong></h4>
+                    <div class="form-group row">
+                        <div class="col-auto" style="font-size: 18px">
+                            <label for="question"><strong>Question Statement:</strong></label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Enter question" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <h5>Enter Options</h5>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="MCQ1" class="MCQ"><input type="text" class="form-control" placeholder="Option - 1" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="MCQ1" class="MCQ"><input type="text" class="form-control" placeholder="Option - 2" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="MCQ1" class="MCQ"><input type="text" class="form-control" placeholder="Option - 3" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="MCQ1" class="MCQ"><input type="text" class="form-control" placeholder="Option - 4" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <hr>
+                    <h4><strong>Type : MCQ - II</strong></h4>
+                    <div class="form-group row">
+                        <div class="col-auto" style="font-size: 18px">
+                            <label for="question"><strong>Question Statement:</strong></label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Enter question" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <h5>Enter Options</h5>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" name="MCQ2" class="MCQ"><input type="text" class="form-control" placeholder="Option - 1" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" name="MCQ2" class="MCQ"><input type="text" class="form-control" placeholder="Option - 2" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" name="MCQ2" class="MCQ"><input type="text" class="form-control" placeholder="Option - 3" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" name="MCQ2" class="MCQ"><input type="text" class="form-control" placeholder="Option - 4" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <hr>
+                    <h4><strong>Type : MCQ - III</strong></h4>
+                    <div class="form-group row">
+                        <div class="col-auto" style="font-size: 18px">
+                            <label for="question"><strong>Question Statement:</strong></label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Enter question" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <h5>Enter Options</h5>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" name="MCQ3" class="MCQ"><input type="text" class="form-control" placeholder="Option - 1" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" name="MCQ3" class="MCQ"><input type="text" class="form-control" placeholder="Option - 2" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" name="MCQ3" class="MCQ"><input type="text" class="form-control" placeholder="Option - 3" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" name="MCQ3" class="MCQ"><input type="text" class="form-control" placeholder="Option - 4" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <hr>
+                    <h4><strong>Type : INTEGER TYPE</strong></h4>
+                    <div class="form-group row">
+                        <div class="col-auto" style="font-size: 18px">
+                            <label for="question"><strong>Question Statement:</strong></label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Enter question" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <h5>Enter Answer</h5>
+                        </div>
+                        <div class="col-4">
+                            <div style="direction: flex; flex-direction: row;">
+                                <input type="text" class="form-control" placeholder="Enter Integer" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <hr>
+                    <h4><strong>Type : FILL IN THE BLANKS</strong></h4>
+                    <div class="form-group row">
+                        <div class="col-auto" style="font-size: 18px">
+                            <label for="question"><strong>Question Statement:</strong></label>
+                        </div>
+                        <div class="col form-check-inline">
+                            <input type="text" class="form-control" placeholder="Enter Starting Statements (if any)" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  required>
+                            <input type="text" class="form-control" placeholder="Enter Blank" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  required>
+                            <input type="text" class="form-control" placeholder="Enter rest statements (if any)" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00" >
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <hr>
+                    <h4><strong>Type : TRUE and FALSE</strong></h4>
+                    <div class="form-group row">
+                        <div class="col-auto" style="font-size: 18px">
+                            <label for="question"><strong>Question Statement:</strong></label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Enter question" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <h5>Enter Answer</h5>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="TnF" class="MCQ"><label for="TnF" style="font-size: 18px">True</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="TnF" class="MCQ"><label for="TnF" style="font-size: 18px">False</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <hr>
+                    <h4><strong>Type : SUBJECTIVE</strong></h4>
+                    <div class="form-group row">
+                        <div class="col-auto" style="font-size: 18px">
+                            <label for="question"><strong>Question Statement:</strong></label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Enter question" id="question" style="border-width: 1px 1px 1px 5px ;background: none; border-color: #FFCC00"  autofocus required>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="submit" name="" value="NEXT" class="btn_1" style="transform: scale(0.8);">
+            </div>
+        </div>
+    </section>
+    <script src="homejs/jquery-1.12.1.min.js"></script>
+    <script src="homejs/popper.min.js"></script>
+    <script src="homejs/jquery.magnific-popup.js"></script>
+    <script src="homejs/custom.js"></script>
+</body>
+
+</html>
